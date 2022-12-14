@@ -1,0 +1,10 @@
+# {{ client_name }}-ansible-pull@.service
+# {{ ansible_managed }}
+[Unit]
+Description=Runs ansible pull for {{ client_name }} client
+AssertPathExists={{ potos_basics_ansible_workdir }}
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/{{ client_name | lower }}-ansible-pull -r %i
+
